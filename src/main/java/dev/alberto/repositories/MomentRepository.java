@@ -23,4 +23,8 @@ public class MomentRepository {
         return db.getAll();
     }
 
+    public boolean deleteMoment(int index) {
+        return db.deleteMoment(index);
+    }
+
 }

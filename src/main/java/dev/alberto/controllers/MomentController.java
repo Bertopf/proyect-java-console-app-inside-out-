@@ -29,9 +29,16 @@ public class MomentController {
         for (Moment moment : moments) {
             System.out.println(moment);
         }
-    }
+    } 
+
 }
 
+    public List<Moment> getAllMoments() {
+        return repository.getAllMoments();
+    }
 
     
+    public boolean deleteMoment(int index) {
+        return repository.deleteMoment(index);
+    }
 }
