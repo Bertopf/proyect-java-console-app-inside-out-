@@ -1,12 +1,14 @@
 package dev.alberto.models;
 
+import java.time.LocalDate;
+
 public class Moment {
     private String title;
     private String description;
-    private String date;
+    private LocalDate date;
     private EmotionEnum emotion;
 
-    public Moment(String title, String description, String date, EmotionEnum emotion) {
+    public Moment(String title, String description, LocalDate date, EmotionEnum emotion) {
         this.title = title;
         this.description = description;
         this.date = date;
@@ -21,7 +23,7 @@ public class Moment {
         return description;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
