@@ -1,0 +1,34 @@
+package dev.alberto.models;
+
+public class Moment {
+    private String title;
+    private String description;
+    private String date;
+
+    public Moment(String title, String description, String date) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + title + "\n" +
+               "Fecha: " + date + "\n" +
+               "Descripción: " + description + "\n";
+    }
+
+
+}
