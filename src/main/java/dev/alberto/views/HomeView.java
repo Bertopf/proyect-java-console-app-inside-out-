@@ -1,6 +1,12 @@
 package dev.alberto.views;
 
+import dev.alberto.controllers.MomentController;
+
 public class HomeView extends View {
+
+    static final MomentController momentController = new MomentController();
+    
+
     public static void printMenu() {
         String text = """
                 1. Añadir momento
@@ -11,6 +17,15 @@ public class HomeView extends View {
                 Seleccione una opción: """;
         System.out.print(text);
         int option = SCANNER.nextInt();
+        if (option == 1) {
+                MomentPostView.printStoreMenu();
+            }
+
+        if (option == 2) {
+            momentController.ShowAllMoments();
+            
+            
+        }
     }
 
     

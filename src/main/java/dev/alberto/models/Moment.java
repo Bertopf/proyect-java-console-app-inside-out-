@@ -22,4 +22,13 @@ public class Moment {
     public String getDate() {
         return date;
     }
+
+    @Override
+    public String toString() {
+        return "Título: " + title + "\n" +
+               "Fecha: " + date + "\n" +
+               "Descripción: " + description + "\n";
+    }
+
+
 }

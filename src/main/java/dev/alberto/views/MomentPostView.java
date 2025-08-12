@@ -2,11 +2,12 @@ package dev.alberto.views;
 
 import dev.alberto.dtos.MomentDTO;
 import dev.alberto.controllers.MomentController;
+import dev.alberto.views.HomeView;
 
 
 public class MomentPostView extends View {
 
-    private static MomentController CONTROLLER = new MomentController();
+    private static MomentController CONTROLLER = HomeView.momentController;
 
     public static void printStoreMenu() {
         System.out.println("Ingrese el titulo:");
@@ -20,6 +21,8 @@ public class MomentPostView extends View {
 
         MomentDTO momentDTO = new MomentDTO(title, description, date);
         CONTROLLER.StoreMoment(momentDTO);
+
+        HomeView.printMenu();
 
     }
 
