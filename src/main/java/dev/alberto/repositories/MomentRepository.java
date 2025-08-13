@@ -5,6 +5,7 @@ import dev.alberto.models.Moment;
 import java.util.List;
 
 import dev.alberto.db.DiaryDatabase;
+import dev.alberto.models.EmotionEnum;
 
 
 public class MomentRepository {
@@ -26,5 +27,14 @@ public class MomentRepository {
     public boolean deleteMoment(int index) {
         return db.deleteMoment(index);
     }
+    
+    public List<Moment> getMomentsByEmotion(EmotionEnum emotion) {
+    return db.getAll().stream()
+        .filter(m -> m.getEmotionEnum() == emotion)
+        .toList();
+}
+
+
+
 
 }
