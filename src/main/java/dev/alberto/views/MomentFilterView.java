@@ -8,7 +8,9 @@ public class MomentFilterView extends View {
         int choice = SCANNER.nextInt();
         if (choice == 1) {
             MomentsFilterByEmotionView.printFilterMenu();
-        } else if (choice == 2) {
+        } else if (choice == 2) { 
+            MomentFilterByDateView.printFilterMenu();
+
         } else if (choice == 3) {
             HomeView.printMenu();
         } else {

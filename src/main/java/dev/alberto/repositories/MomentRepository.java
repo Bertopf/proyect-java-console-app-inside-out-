@@ -2,6 +2,8 @@ package dev.alberto.repositories;
 
 import dev.alberto.models.Moment;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import dev.alberto.db.DiaryDatabase;
@@ -34,6 +36,15 @@ public class MomentRepository {
         .toList();
 }
 
+    public List<Moment> getMomentsByDate(LocalDate date) {
+        List<Moment> filtered = new ArrayList<>();
+        for (Moment moment : db.getAll()) {
+            if (moment.getDate().isEqual(date)) {
+                filtered.add(moment);
+            }
+        }
+        return filtered;
+    }
 
 
 
