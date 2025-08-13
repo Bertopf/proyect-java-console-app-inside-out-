@@ -1,6 +1,7 @@
 package dev.alberto.models;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Moment {
     private String title;
@@ -33,10 +34,12 @@ public class Moment {
 
     @Override
     public String toString() {
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "Título: " + title + "\n" +
-               "Fecha: " + date + "\n" +
+               "Fecha: " + date.format(formatter) + "\n" +
                "Descripción: " + description + "\n" +
                "Emoción: " + emotion.getDisplayName() + "\n";
+              
     }
 
 
