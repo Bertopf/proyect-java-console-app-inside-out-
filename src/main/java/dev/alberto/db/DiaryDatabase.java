@@ -3,29 +3,29 @@ package dev.alberto.db;
 import dev.alberto.models.Moment;
 import java.util.List;
 import java.util.ArrayList;
+import dev.alberto.contracts.InterfaceDatabase;
 
 
-public class DiaryDatabase {
-
+public class DiaryDatabase implements InterfaceDatabase<Moment> {
     private List<Moment> moments;
-
     public DiaryDatabase() {
         this.moments = new ArrayList<>();
     }
-
+    @Override
     public void store(Moment moment) {
         moments.add(moment);
     }
-
+    @Override
     public List<Moment> getAll() {
         return moments;
     }
-
-    public boolean deleteMoment(int index) {
-    if (index >= 0 && index < moments.size()) {
-        moments.remove(index);
-        return true;
+    @Override
+    public boolean delete(int index) {
+        if (index >= 0 && index < moments.size()) {
+            moments.remove(index);
+            return true;
+        }
+        return false;
     }
-    return false;
 }
-}
+
