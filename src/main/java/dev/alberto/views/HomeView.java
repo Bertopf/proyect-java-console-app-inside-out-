@@ -20,12 +20,11 @@ public class HomeView extends View {
         int option = SCANNER.nextInt();
         if (option == 1) {
                 MomentPostView.printStoreMenu();
-            }
+         }
 
         if (option == 2) {
             momentController.ShowAllMoments();
-            
-            
+            printMenu();
         }
 
         if (option == 3) {
@@ -35,6 +34,17 @@ public class HomeView extends View {
         if (option == 4) {
             MomentFilterView.printFilterMenu();
         }
+
+        if (option == 5) {
+            System.out.println("Saliendo...");
+            System.exit(0);
+        }
+        
+        if (option < 1 || option > 5) {
+            System.out.println("Opción inválida. Inténtalo de nuevo.");
+            printMenu();
+        }
+
     }
 
     
