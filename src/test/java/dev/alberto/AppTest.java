@@ -1,18 +1,38 @@
 package dev.alberto;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.io.OutputStream;
 
-/**
- * Unit test for simple App.
- */
-class AppTest {
-    /**
-     * Rigorous Test.
-     */
+public class AppTest {
+
     @Test
-    void testApp() {
-        assertEquals(1, 1);
+    void testSalirConOpcion5() throws Exception {
+       
+        ProcessBuilder pb = new ProcessBuilder(
+                "java", "-cp", "target/classes", "dev.alberto.App"
+        );
+        pb.redirectErrorStream(true);
+        Process process = pb.start();
+
+        
+        try (OutputStream os = process.getOutputStream()) {
+            os.write("5\n".getBytes());
+            os.flush();
+        }
+
+       
+        String output = new String(process.getInputStream().readAllBytes());
+
+        
+        int exitCode = process.waitFor();
+
+        
+        assertTrue(output.contains("Saliendo"), 
+                "La salida no contiene el mensaje de salida: " + output);
+
+        
+        assertEquals(0, exitCode, "El código de salida no fue 0");
     }
 }
