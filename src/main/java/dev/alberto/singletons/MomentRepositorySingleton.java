@@ -12,4 +12,9 @@ public class MomentRepositorySingleton {
         return INSTANCE;
     }
     
+    public static void resetInstance() {
+        INSTANCE = null;
+    }
+
+    
 }
