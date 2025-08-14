@@ -1,45 +1,38 @@
 package dev.alberto.models;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Moment {
     private String title;
-    private String description;
     private LocalDate date;
+    private String description;
     private EmotionEnum emotion;
-
-    public Moment(String title, String description, LocalDate date, EmotionEnum emotion) {
+    private final LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    public Moment(String title, LocalDate date, String description, EmotionEnum emotion) {
         this.title = title;
-        this.description = description;
         this.date = date;
+        this.description = description;
         this.emotion = emotion;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = createdAt;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public EmotionEnum getEmotionEnum() {
-        return emotion;
-    }
-
+    public String getTitle() { return title; }
+    public LocalDate getDate() { return date; }
+    public String getDescription() { return description; }
+    public EmotionEnum getEmotionEnum() { return emotion; }
+    public LocalDateTime getCreatedAt() { return createdAt; }
+    public LocalDateTime getUpdatedAt() { return updatedAt; }
+    public void setUpdatedAt() { this.updatedAt = LocalDateTime.now(); }
     @Override
     public String toString() {
-         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return "Título: " + title + "\n" +
                "Fecha: " + date.format(formatter) + "\n" +
                "Descripción: " + description + "\n" +
                "Emoción: " + emotion.getDisplayName() + "\n";
-              
     }
 
 
