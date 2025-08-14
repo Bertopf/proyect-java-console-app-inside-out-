@@ -2,6 +2,7 @@ package dev.alberto.views;
 
 import dev.alberto.controllers.MomentController;
 import dev.alberto.models.Moment;
+import dev.alberto.singletons.MomentControllerSingleton;
 
 import java.util.Scanner;
 import dev.alberto.views.HomeView;
@@ -9,7 +10,7 @@ import java.util.List;
 
 
 public class MomentDeleteView extends View {
-    private static MomentController CONTROLLER = HomeView.momentController;
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
     public static void printDeleteMenu() {
         List<Moment> moments = CONTROLLER.getAllMoments();
         CONTROLLER.ShowAllMoments();

@@ -7,11 +7,12 @@ import java.util.List;
 
 import dev.alberto.controllers.MomentController;
 import dev.alberto.models.Moment;
+import dev.alberto.singletons.MomentControllerSingleton;
 
 
 
 public class MomentFilterByDateView extends View {
-    private static MomentController CONTROLLER = HomeView.momentController;
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
     public static void printFilterMenu() {
         System.out.println("Ingrese la fecha para filtrar (dd/MM/yyyy):");
         String inputDate = SCANNER.next();

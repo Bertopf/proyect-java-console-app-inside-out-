@@ -1,10 +1,11 @@
 package dev.alberto.views;
 
 import dev.alberto.controllers.MomentController;
+import dev.alberto.singletons.MomentControllerSingleton;
 
 public class HomeView extends View {
 
-    static final MomentController momentController = new MomentController();
+    public static final MomentController momentController = MomentControllerSingleton.getInstance();
     
 
     public static void printMenu() {

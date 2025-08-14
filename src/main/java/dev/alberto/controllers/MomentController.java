@@ -8,13 +8,19 @@ import dev.alberto.models.EmotionEnum;
 import dev.alberto.models.Moment;   
 import dev.alberto.mappers.MomentMapper;
 import dev.alberto.repositories.MomentRepository;
+import dev.alberto.singletons.MomentRepositorySingleton;
 import dev.alberto.models.EmotionEnum;
+
+
+
 
 
 public class MomentController {
  private MomentRepository repository;
+
+
  public MomentController() {
-  this.repository = new MomentRepository();
+  this.repository = MomentRepositorySingleton.getInstance();
  }
 public void StoreMoment(MomentDTO MomentDTO) {
     Moment momentToSave = MomentMapper.toEntity(MomentDTO);

@@ -2,11 +2,12 @@ package dev.alberto.views;
 
 import dev.alberto.controllers.MomentController;
 import dev.alberto.models.EmotionEnum;
+import dev.alberto.singletons.MomentControllerSingleton;
 
 
 
 public class MomentsFilterByEmotionView extends View {
-    private static MomentController CONTROLLER = HomeView.momentController;
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
     public static void printFilterMenu() {
         System.out.println("Seleccione la emoción para filtrar:");
         for (EmotionEnum e : EmotionEnum.values()) {

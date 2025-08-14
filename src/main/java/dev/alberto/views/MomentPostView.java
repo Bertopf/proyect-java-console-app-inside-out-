@@ -5,13 +5,15 @@ import dev.alberto.dtos.MomentDTO;
 import dev.alberto.controllers.MomentController;
 import dev.alberto.views.HomeView;
 import dev.alberto.models.EmotionEnum;
+import dev.alberto.singletons.MomentControllerSingleton;
+
 import java.time.format.DateTimeParseException;
 import java.time.LocalDate;
 import dev.alberto.views.HomeView;
 
 
 public class MomentPostView extends View {
-    private static MomentController CONTROLLER = HomeView.momentController;
+    private static MomentController CONTROLLER = MomentControllerSingleton.getInstance();
     public static void printStoreMenu() {
         System.out.println("Ingrese el título:");
         String title = SCANNER.next();
