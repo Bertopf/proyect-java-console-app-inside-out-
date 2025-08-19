@@ -15,7 +15,8 @@ public class HomeView extends View {
                 2. Ver todos los momentos disponibles
                 3. Eliminar un momento
                 4. Filtrar los momentos
-                5. Salir
+                5. Exportar momentos a CSV
+                6. Salir
                 Seleccione una opción: """;
         System.out.print(text);
         int option = SCANNER.nextInt();
@@ -37,11 +38,15 @@ public class HomeView extends View {
         }
 
         if (option == 5) {
+            MomentExportCSVView.exportMomentsToCSV("momentos.csv");
+        }
+
+        if (option == 6) {
             System.out.println("Saliendo...");
             System.exit(0);
         }
-        
-        if (option < 1 || option > 5) {
+
+        if (option < 1 || option > 6) {
             System.out.println("Opción inválida. Inténtalo de nuevo.");
             printMenu();
         }
