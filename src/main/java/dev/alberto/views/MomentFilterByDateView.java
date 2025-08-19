@@ -34,6 +34,10 @@ public class MomentFilterByDateView extends View {
         }
         HomeView.printMenu();
     }
+    public static List<Moment> filterByDate(String string) {
+       
+        throw new UnsupportedOperationException("Unimplemented method 'filterByDate'");
+    }
 
     
 }
