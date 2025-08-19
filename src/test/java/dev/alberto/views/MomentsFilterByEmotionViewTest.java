@@ -26,13 +26,15 @@ public class MomentsFilterByEmotionViewTest {
                 "Momento Alegría",
                 LocalDate.now(),
                 "Descripción 1",
-                EmotionEnum.ALEGRIA
+                EmotionEnum.ALEGRIA,
+                true
         ));
         controller.getAllMoments().add(new Moment(
                 "Momento Tristeza",
                 LocalDate.now(),
                 "Descripción 2",
-                EmotionEnum.TRISTEZA
+                EmotionEnum.TRISTEZA,
+                true
         ));
     }
 

@@ -21,7 +21,7 @@ class MomentRepositoryTest<repository> {
 
     @Test
     void testStoreAndGetAllMoments() {
-        Moment moment = new Moment("Título", LocalDate.now(), "Descripción", EmotionEnum.ALEGRIA);
+        Moment moment = new Moment("Título", LocalDate.now(), "Descripción", EmotionEnum.ALEGRIA, true);
         repository.storeMoment(moment);
 
         List<Moment> allMoments = repository.getAllMoments();
@@ -31,7 +31,7 @@ class MomentRepositoryTest<repository> {
 
     @Test
     void testDeleteMoment() {
-        Moment moment = new Moment("Título", LocalDate.now(), "Descripción", EmotionEnum.ALEGRIA);
+        Moment moment = new Moment("Título", LocalDate.now(), "Descripción", EmotionEnum.ALEGRIA, true);
         repository.storeMoment(moment);
 
         boolean deleted = repository.deleteMoment(0);
@@ -44,8 +44,8 @@ class MomentRepositoryTest<repository> {
 
     @Test
     void testGetMomentsByEmotion() {
-        Moment m1 = new Moment("A", LocalDate.now(), "Desc", EmotionEnum.ALEGRIA);
-        Moment m2 = new Moment("B", LocalDate.now(), "Desc", EmotionEnum.TRISTEZA);
+        Moment m1 = new Moment("A", LocalDate.now(), "Desc", EmotionEnum.ALEGRIA, true);
+        Moment m2 = new Moment("B", LocalDate.now(), "Desc", EmotionEnum.TRISTEZA, true);
         repository.storeMoment(m1);
         repository.storeMoment(m2);
 
@@ -63,8 +63,8 @@ class MomentRepositoryTest<repository> {
         LocalDate today = LocalDate.now();
         LocalDate yesterday = today.minusDays(1);
 
-        Moment m1 = new Moment("A", today, "Desc", EmotionEnum.ALEGRIA);
-        Moment m2 = new Moment("B", yesterday, "Desc", EmotionEnum.TRISTEZA);
+        Moment m1 = new Moment("A", today, "Desc", EmotionEnum.ALEGRIA, true);
+        Moment m2 = new Moment("B", yesterday, "Desc", EmotionEnum.TRISTEZA, true);
         repository.storeMoment(m1);
         repository.storeMoment(m2);
 

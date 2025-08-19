@@ -9,6 +9,7 @@ public class HomeView extends View {
     
 
     public static void printMenu() {
+        
         String text = """
                 1. Añadir momento
                 2. Ver todos los momentos disponibles

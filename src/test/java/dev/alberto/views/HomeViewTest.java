@@ -38,7 +38,8 @@ public class HomeViewTest {
                 "Momento de prueba",
                 "Descripción",
                 LocalDate.now(),
-                EmotionEnum.ALEGRIA
+                EmotionEnum.ALEGRIA,
+                true
         ));
 
        
@@ -58,7 +59,8 @@ public class HomeViewTest {
                 "Momento a eliminar",
                 "Descripción",
                 LocalDate.now(),
-                EmotionEnum.ALEGRIA
+                EmotionEnum.ALEGRIA,
+                true    
         ));
 
         String simulatedInput = "3\n1\n5\n";

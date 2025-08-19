@@ -12,7 +12,7 @@ class MomentDTOTest {
     @Test
     void testCreationAndGetters() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        MomentDTO dto = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA);
+        MomentDTO dto = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA, true);
 
         assertEquals("Título", dto.title());
         assertEquals("Descripción", dto.description());
@@ -23,9 +23,9 @@ class MomentDTOTest {
     @Test
     void testEquality() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        MomentDTO dto1 = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA);
-        MomentDTO dto2 = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA);
-        MomentDTO dto3 = new MomentDTO("Otro", "Descripción", date, EmotionEnum.ALEGRIA);
+        MomentDTO dto1 = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA, true);
+        MomentDTO dto2 = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA, true);
+        MomentDTO dto3 = new MomentDTO("Otro", "Descripción", date, EmotionEnum.ALEGRIA, false);
 
        
         assertEquals(dto1, dto2);
@@ -37,9 +37,9 @@ class MomentDTOTest {
     @Test
     void testToString() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        MomentDTO dto = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA);
+        MomentDTO dto = new MomentDTO("Título", "Descripción", date, EmotionEnum.ALEGRIA, true);
 
-        String expected = "MomentDTO[title=Título, description=Descripción, date=2025-08-14, emotion=ALEGRIA]";
+        String expected = "MomentDTO[title=Título, description=Descripción, date=2025-08-14, emotion=ALEGRIA, isGood=true]";
         assertEquals(expected, dto.toString());
     }
 }

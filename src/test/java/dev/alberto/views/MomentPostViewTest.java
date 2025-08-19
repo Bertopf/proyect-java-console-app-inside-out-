@@ -27,7 +27,8 @@ class HomeViewTest {
                 LocalDate.now(),
                 "Descripción de prueba",
                 
-                EmotionEnum.ALEGRIA
+                EmotionEnum.ALEGRIA,
+                true
         ));
     }
 

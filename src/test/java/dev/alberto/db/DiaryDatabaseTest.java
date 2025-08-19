@@ -16,7 +16,7 @@ class DiaryDatabaseTest {
     }
     @Test
     void testStoreAndGetAll() {
-        Moment moment = new Moment("Cumpleaños", LocalDate.of(2025, 8, 14), "Mi cumpleaños", EmotionEnum.ALEGRIA);
+        Moment moment = new Moment("Cumpleaños", LocalDate.of(2025, 8, 14), "Mi cumpleaños", EmotionEnum.ALEGRIA, true);
         db.store(moment);
         List<Moment> moments = db.getAll();
         assertThat(moments, hasSize(1));
@@ -25,7 +25,7 @@ class DiaryDatabaseTest {
     }
     @Test
     void testDeleteValidIndex() {
-        Moment moment = new Moment("Cumpleaños", LocalDate.of(2025, 8, 14), "Mi cumpleaños", EmotionEnum.ALEGRIA);
+        Moment moment = new Moment("Cumpleaños", LocalDate.of(2025, 8, 14), "Mi cumpleaños", EmotionEnum.ALEGRIA, true);
         db.store(moment);
         boolean deleted = db.delete(0);
         assertThat(deleted, is(true));

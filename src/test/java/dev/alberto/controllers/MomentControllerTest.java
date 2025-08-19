@@ -21,7 +21,7 @@ class MomentControllerTest {
     @Test
     void testStoreAndRetrieveMoment() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        MomentDTO dto = new MomentDTO("Cumpleaños","Mi cumpleaños", date,  EmotionEnum.ALEGRIA);
+        MomentDTO dto = new MomentDTO("Cumpleaños","Mi cumpleaños", date,  EmotionEnum.ALEGRIA, true);
         controller.StoreMoment(dto);
         List<Moment> moments = controller.getAllMoments();
         assertThat(moments, hasSize(1));
@@ -33,7 +33,7 @@ class MomentControllerTest {
     @Test
     void testDeleteMoment() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date, EmotionEnum.ALEGRIA));
+        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date, EmotionEnum.ALEGRIA, true));
         boolean deleted = controller.deleteMoment(0);
         assertThat(deleted, is(true));
         assertThat(controller.getAllMoments(), is(empty()));
@@ -41,8 +41,8 @@ class MomentControllerTest {
     @Test
     void testGetMomentsByEmotion() {
         LocalDate date = LocalDate.of(2025, 8, 14);
-        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date,  EmotionEnum.ALEGRIA));
-        controller.StoreMoment(new MomentDTO("Tristeza","Día triste", date,  EmotionEnum.TRISTEZA));
+        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date,  EmotionEnum.ALEGRIA, true));
+        controller.StoreMoment(new MomentDTO("Tristeza","Día triste", date,  EmotionEnum.TRISTEZA, false));
         List<Moment> alegriaMoments = controller.getAllMoments().stream()
                 .filter(m -> m.getEmotionEnum() == EmotionEnum.ALEGRIA)
                 .toList();
@@ -53,8 +53,8 @@ class MomentControllerTest {
     void testGetMomentsByDate() {
         LocalDate date1 = LocalDate.of(2025, 8, 14);
         LocalDate date2 = LocalDate.of(2025, 8, 15);
-        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date1,  EmotionEnum.ALEGRIA));
-        controller.StoreMoment(new MomentDTO("Otro día","Otra fecha", date2,  EmotionEnum.TRISTEZA));
+        controller.StoreMoment(new MomentDTO("Cumpleaños","Mi cumpleaños", date1,  EmotionEnum.ALEGRIA, true));
+        controller.StoreMoment(new MomentDTO("Otro día","Otra fecha", date2,  EmotionEnum.TRISTEZA, false));
         List<Moment> momentsOn14 = controller.getMomentsByDate(date1);
         assertThat(momentsOn14, hasSize(1));
         assertThat(momentsOn14.get(0).getDate(), is(date1));
