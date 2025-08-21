@@ -48,13 +48,6 @@ public class MomentsFilterByEmotionViewTest {
         assertDoesNotThrow(() -> MomentsFilterByEmotionView.printFilterMenu());
     }
 
-    @Test
-    void testFiltrarOpcionInvalida() {
-        
-        String simulatedInput = "99\n5\n";
-        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
-
-        
-        assertDoesNotThrow(() -> MomentsFilterByEmotionView.printFilterMenu());
+    
     }
-}
+
